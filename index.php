@@ -35,6 +35,10 @@
               <a href="index.php?page=mahasiswa" class="collapsible-header waves-effect"><i
                   class="w-fa fas fa-users"></i>Mahasiswa</a>
             </li>
+            <li>
+              <a href="index.php?page=jadwal" class="collapsible-header waves-effect"><i
+                  class="w-fa fas fa-clock"></i>Jadwal</a>
+            </li>
           </ul>
         </li>
       <div class="sidenav-bg mask-strong"></div>

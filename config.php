@@ -42,7 +42,11 @@ switch($page){
   break;
 
   case 'jadwal':
-  include "views/jadwal.php"; 
+  include "views/jadwal/jadwal.php"; 
+  break;
+
+  case 'new_jadwal':
+  include "views/jadwal/new_jadwal.php"; 
   break;
 
   case 'absensi':
