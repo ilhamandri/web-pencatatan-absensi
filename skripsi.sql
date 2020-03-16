@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 09:03 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Mar 16, 2020 at 03:17 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id` bigint(20) NOT NULL,
+  `matakuliah_id` bigint(20) NOT NULL,
+  `mahasiswa_id` bigint(20) NOT NULL,
+  `jam` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `matakuliah_id`, `mahasiswa_id`, `jam`) VALUES
+(1, 1, 1, '2020-03-06 10:38:12'),
+(2, 1, 2, '2020-03-06 10:38:12'),
+(3, 1, 1, '2020-03-06 10:44:09');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jadwal`
 --
 
@@ -35,16 +57,17 @@ CREATE TABLE `jadwal` (
   `jam_selesai` int(1) NOT NULL,
   `tipe` int(2) NOT NULL,
   `hari` int(1) NOT NULL,
-  `ruang_id` bigint(99) NOT NULL
+  `ruang_id` bigint(99) NOT NULL,
+  `code` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`) VALUES
-(1, 1, 7, 9, 1, 1, 1),
-(2, 2, 8, 11, 2, 2, 2);
+INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`, `code`) VALUES
+(1, 1, 7, 9, 1, 1, 1, NULL),
+(2, 2, 8, 11, 2, 2, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -55,16 +78,20 @@ INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`,
 CREATE TABLE `mahasiswa` (
   `id` bigint(100) NOT NULL,
   `npm` bigint(10) NOT NULL,
-  `nama` varchar(25) NOT NULL DEFAULT 'DEFAULT NAME'
+  `nama` varchar(25) NOT NULL DEFAULT 'DEFAULT NAME',
+  `session_key` text NOT NULL,
+  `email` varchar(99) NOT NULL,
+  `password` varchar(99) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id`, `npm`, `nama`) VALUES
-(1, 2013730001, 'Ilham Andrian'),
-(2, 2013730029, 'Kevin R');
+INSERT INTO `mahasiswa` (`id`, `npm`, `nama`, `session_key`, `email`, `password`) VALUES
+(1, 2013730001, 'Ilham Andrian', '727b0bff33fd714c2b01d7ae7c27c0f8', 'ilham@unpar.ac.id', 'ilham'),
+(2, 2013730029, 'Kevin R', 'd41d8cd98f00b204e9800998ecf8427e', '', ''),
+(3, 2013730051, 'Fadel Amien', 'd41d8cd98f00b204e9800998ecf8427e', '', '');
 
 -- --------------------------------------------------------
 
@@ -76,16 +103,19 @@ CREATE TABLE `matakuliah` (
   `id` bigint(250) NOT NULL,
   `kode` varchar(99) NOT NULL,
   `nama` varchar(99) NOT NULL,
-  `sks` int(1) NOT NULL
+  `sks` int(1) NOT NULL,
+  `absent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`id`, `kode`, `nama`, `sks`) VALUES
-(1, 'MK-001', 'Algoritma Struktur Dasar', 4),
-(2, 'MK-002', 'Pemrograman Berbasis Objek', 6);
+INSERT INTO `matakuliah` (`id`, `kode`, `nama`, `sks`, `absent`) VALUES
+(1, 'MK-001', 'Algoritma Struktur Dasar', 4, 3),
+(2, 'MK-002', 'Pemrograman Berbasis Objek', 6, 4),
+(15, 'AIF512', 'ADBO', 4, 5),
+(16, 'AIF612', 'DAA', 4, 6);
 
 -- --------------------------------------------------------
 
@@ -105,7 +135,9 @@ CREATE TABLE `mk_mahasiswa` (
 
 INSERT INTO `mk_mahasiswa` (`id`, `matakuliah_id`, `mahasiswa_id`) VALUES
 (1, 1, 1),
-(2, 2, 1);
+(2, 2, 1),
+(3, 15, 1),
+(4, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -126,11 +158,18 @@ CREATE TABLE `ruang` (
 
 INSERT INTO `ruang` (`id`, `nama`, `gedung`, `lantai`) VALUES
 (1, '10317', 10, 3),
-(2, 'Lab Praktikum 1', 9, 0);
+(2, 'Lab Praktikum 1', 9, 0),
+(3, '10321', 10, 3);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jadwal`
@@ -167,6 +206,12 @@ ALTER TABLE `ruang`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
@@ -176,25 +221,25 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  MODIFY `id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `mk_mahasiswa`
 --
 ALTER TABLE `mk_mahasiswa`
-  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ruang`
 --
 ALTER TABLE `ruang`
-  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
