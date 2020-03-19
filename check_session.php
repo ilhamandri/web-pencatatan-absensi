@@ -8,9 +8,12 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	$session_key = "123456789";
-	if(isset($_POST["token"])){
-		$session_key = $_POST["token"];
-		echo $session_key;
+
+	$data = json_decode(file_get_contents('php://input'), true);
+
+	$token = $data["token"];
+	if($token==""){
+		$session_key = $token;
 	}
 
 

@@ -8,7 +8,7 @@
 	
 
 	$id_mahasiswa = $mahasiswa["id"];
-	$id_matakuliah = 1;
+	$id_matakuliah = $data["id_matkul"];
 
 	$sql = "SELECT jam, absent, nama FROM absensi LEFT JOIN matakuliah ON absensi.matakuliah_id = matakuliah.id WHERE mahasiswa_id = $id_mahasiswa AND matakuliah_id = $id_matakuliah";
 	$result = mysqli_query($conn, $sql);
