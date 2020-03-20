@@ -12,7 +12,7 @@
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	$token = $data["token"];
-	if($token==""){
+	if($token!=""){
 		$session_key = $token;
 	}
 
@@ -24,7 +24,7 @@
 			"MESSAGE" => "Silahkan melakukan login."
 		));
 	}else{
-		$sql = "SELECT id, nama, email FROM mahasiswa WHERE session_key = $session_key";
+		$sql = "SELECT id, nama, email FROM mahasiswa WHERE session_key = '$session_key'";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 		    while($row = mysqli_fetch_assoc($result)) {
