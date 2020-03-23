@@ -48,8 +48,8 @@
 				} 
 		    	echo json_encode(array(
 		    		"STATUS_CODE" => "OK",
-					"mahasiswa" => $mahasiswa,
-					"matakuliah" => $matkul_arr
+					"mahasiswa" => $mahasiswa
+					//"matakuliah" => $matkul_arr
 				));
 			} else {
 				echo json_encode(array("STATUS_CODE" => "NOK", "MESSAGE" => "Terjadi kendala diserver. Token gagal dimuat."));
