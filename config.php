@@ -50,7 +50,7 @@ switch($page){
   break;
 
   case 'absensi':
-  include "views/absensi.php"; 
+  include "views/absensi/absensi.php"; 
   break;
   
   default: 
