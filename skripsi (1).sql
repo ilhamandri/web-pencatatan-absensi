@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 03:17 AM
+-- Generation Time: Mar 23, 2020 at 03:19 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -66,8 +66,8 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`, `code`) VALUES
-(1, 1, 7, 9, 1, 1, 1, NULL),
-(2, 2, 8, 11, 2, 2, 2, NULL);
+(1, 1, 7, 9, 1, 1, 1, 'e1ed1b6442d5edd0a0a686be4e4f228f'),
+(2, 2, 8, 11, 2, 2, 2, 'a021d9f19396a05b039b6fe5cdc9c1e3');
 
 -- --------------------------------------------------------
 
@@ -81,17 +81,18 @@ CREATE TABLE `mahasiswa` (
   `nama` varchar(25) NOT NULL DEFAULT 'DEFAULT NAME',
   `session_key` text NOT NULL,
   `email` varchar(99) NOT NULL,
-  `password` varchar(99) NOT NULL
+  `password` varchar(99) NOT NULL,
+  `prodi_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id`, `npm`, `nama`, `session_key`, `email`, `password`) VALUES
-(1, 2013730001, 'Ilham Andrian', '727b0bff33fd714c2b01d7ae7c27c0f8', 'ilham@unpar.ac.id', 'ilham'),
-(2, 2013730029, 'Kevin R', 'd41d8cd98f00b204e9800998ecf8427e', '', ''),
-(3, 2013730051, 'Fadel Amien', 'd41d8cd98f00b204e9800998ecf8427e', '', '');
+INSERT INTO `mahasiswa` (`id`, `npm`, `nama`, `session_key`, `email`, `password`, `prodi_id`) VALUES
+(1, 2013730001, 'Ilham Andrian', '727b0bff33fd714c2b01d7ae7c27c0f8', 'ilham@unpar.ac.id', 'ilham', 1),
+(2, 2013730029, 'Kevin R', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL),
+(3, 2013730051, 'Fadel Amien', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,6 +139,25 @@ INSERT INTO `mk_mahasiswa` (`id`, `matakuliah_id`, `mahasiswa_id`) VALUES
 (2, 2, 1),
 (3, 15, 1),
 (4, 16, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prodi`
+--
+
+CREATE TABLE `prodi` (
+  `id` int(11) NOT NULL,
+  `nama` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prodi`
+--
+
+INSERT INTO `prodi` (`id`, `nama`) VALUES
+(1, 'Teknik Informatika'),
+(2, 'Matematika');
 
 -- --------------------------------------------------------
 
@@ -196,6 +216,12 @@ ALTER TABLE `mk_mahasiswa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `prodi`
+--
+ALTER TABLE `prodi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ruang`
 --
 ALTER TABLE `ruang`
@@ -234,6 +260,12 @@ ALTER TABLE `matakuliah`
 --
 ALTER TABLE `mk_mahasiswa`
   MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `prodi`
+--
+ALTER TABLE `prodi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ruang`

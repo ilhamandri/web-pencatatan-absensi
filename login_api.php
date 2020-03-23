@@ -16,14 +16,16 @@
 		$email = $data["email"];
 		$password = $data["password"];
 		$token = md5($email.$password);
-		$sql = "SELECT id, nama, email FROM mahasiswa WHERE email='$email' AND password='$password'";
+		$sql = "SELECT mahasiswa.id AS mahasiswa_id, mahasiswa.nama AS nama_mahasiswa, email, prodi.nama AS nama_prodi FROM mahasiswa JOIN prodi ON prodi.id = mahasiswa.prodi_id  WHERE email='$email' AND password='$password'";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 		    while($row = mysqli_fetch_assoc($result)) {
 		        $mahasiswa = array(
-		        	"id" => $row["id"],
-		        	"nama" => $row["nama"],
+		        	"id" => $row["mahasiswa_id"],
+		        	"nama" => $row["nama_mahasiswa"],
 		        	"email" => $row["email"],
+		        	"npm" => $row["npm"],
+		        	"prodi" => $row["nama_prodi"],
 		        	"token" => $token
 		        );
 		    }
