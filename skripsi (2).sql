@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2020 at 03:19 AM
+-- Generation Time: Mar 25, 2020 at 06:30 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -42,7 +42,10 @@ CREATE TABLE `absensi` (
 INSERT INTO `absensi` (`id`, `matakuliah_id`, `mahasiswa_id`, `jam`) VALUES
 (1, 1, 1, '2020-03-06 10:38:12'),
 (2, 1, 2, '2020-03-06 10:38:12'),
-(3, 1, 1, '2020-03-06 10:44:09');
+(3, 1, 1, '2020-03-06 10:44:09'),
+(4, 1, 1, '2020-03-25 17:28:40'),
+(5, 1, 1, '2020-03-25 17:29:20'),
+(6, 1, 1, '2020-03-25 17:29:41');
 
 -- --------------------------------------------------------
 
@@ -58,16 +61,17 @@ CREATE TABLE `jadwal` (
   `tipe` int(2) NOT NULL,
   `hari` int(1) NOT NULL,
   `ruang_id` bigint(99) NOT NULL,
-  `code` text
+  `token` text,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`, `code`) VALUES
-(1, 1, 7, 9, 1, 1, 1, 'e1ed1b6442d5edd0a0a686be4e4f228f'),
-(2, 2, 8, 11, 2, 2, 2, 'a021d9f19396a05b039b6fe5cdc9c1e3');
+INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`, `token`, `last_update`) VALUES
+(1, 1, 7, 9, 1, 1, 1, '17c7117ca4ccecb2286be0ead41bfc1d', '2020-03-25 17:10:36'),
+(2, 2, 8, 11, 2, 2, 2, 'a021d9f19396a05b039b6fe5cdc9c1e3', '2020-03-24 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `npm`, `nama`, `session_key`, `email`, `password`, `prodi_id`) VALUES
-(1, 2013730001, 'Ilham Andrian', '727b0bff33fd714c2b01d7ae7c27c0f8', 'ilham@unpar.ac.id', 'ilham', 1),
+(1, 2013730001, 'Ilham Andrian', '2a4aeeb964ba086e32795ef346ee32d4', 'ilham@unpar.ac.id', 'ilham', 1),
 (2, 2013730029, 'Kevin R', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL),
 (3, 2013730051, 'Fadel Amien', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL);
 
@@ -235,7 +239,7 @@ ALTER TABLE `ruang`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `jadwal`

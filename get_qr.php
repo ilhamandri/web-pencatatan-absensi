@@ -14,18 +14,30 @@
 	$id_ruang = $data["id_ruang"];
 
 	$jam = 9;
-	$sql = "SELECT code, jadwal.id AS id_jadwal, jam_mulai, jam_selesai, matakuliah.nama AS nama_matkul, matakuliah.kode AS kode_matkul, ruang.nama AS nama_ruang FROM jadwal JOIN  matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang on ruang.id = jadwal.ruang_id WHERE ruang_id = $id_ruang AND jam_mulai <= $jam AND jam_selesai >= $jam";
+	$sql = "SELECT (CURRENT_TIMESTAMP - last_update) AS diff, token, jadwal.id AS id_jadwal, jam_mulai, jam_selesai, matakuliah.nama AS nama_matkul, matakuliah.kode AS kode_matkul, ruang.nama AS nama_ruang FROM jadwal JOIN  matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang on ruang.id = jadwal.ruang_id WHERE ruang_id = $id_ruang AND jam_mulai <= $jam AND jam_selesai >= $jam";
 	$result = mysqli_query($conn, $sql);
 	$data = array();
 	$new_token = "";
 	$curr_token = "";
 	if (mysqli_num_rows($result) > 0) {
 	    while($row = mysqli_fetch_assoc($result)) {
-	    	$curr_token = $row["code"];
+	    	$curr_token = $row["token"];
 	    	$id = $row["id_jadwal"];
-	    	if($curr_token != $token){
+	    	$diff = $row["diff"];
+	    	$minute = (int)date("i",$diff);
+	    	$second = (int)date("s",$diff);
+	    	$status = false;
+	    	if($minute > 0){
+	    		$status = true;
+	    	}else{
+	    		if($second > 15){
+	    			$status = true;
+	    		}
+	    	}
+
+	    	if($status == true){
 	    		$token = md5($id_ruang.time());
-	    		$sql = "UPDATE jadwal SET code = '$token' WHERE id=$id";
+	    		$sql = "UPDATE jadwal SET token = '$token', last_update = CURRENT_TIMESTAMP WHERE id=$id";
 			    if ($conn->query($sql) === TRUE){
 			    	$data = array(
 			        	"kode" => $row["kode_matkul"],
