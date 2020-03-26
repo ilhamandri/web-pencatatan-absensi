@@ -26,16 +26,20 @@
 	    	$diff = $row["diff"];
 	    	$minute = (int)date("i",$diff);
 	    	$second = (int)date("s",$diff);
-	    	$status = false;
+	    	$change = false;
 	    	if($minute > 0){
-	    		$status = true;
+	    		$change = true;
 	    	}else{
 	    		if($second > 15){
-	    			$status = true;
+	    			$change = true;
 	    		}
 	    	}
 
-	    	if($status == true){
+	    	if($curr_token!=$token){
+	    		$change = true;
+	    	}
+
+	    	if($change == true){
 	    		$token = md5($id_ruang.time());
 	    		$sql = "UPDATE jadwal SET token = '$token', last_update = CURRENT_TIMESTAMP WHERE id=$id";
 			    if ($conn->query($sql) === TRUE){
