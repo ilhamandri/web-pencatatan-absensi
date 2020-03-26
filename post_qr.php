@@ -18,7 +18,7 @@
 	    	$matakuliah_id = $row["matakuliah_id"];
 	    	$sql = "INSERT INTO absensi (matakuliah_id, mahasiswa_id, jam) VALUES ($matakuliah_id, $mahasiswa_id, CURRENT_TIMESTAMP)";
 	    	if ($conn->query($sql) === TRUE){
-	    		$token = md5($id_ruang.time());
+	    		$token = md5($matakuliah_id.time());
 	    		$sql = "UPDATE jadwal SET token = '$token', last_update = CURRENT_TIMESTAMP WHERE id=$id";
 	    		if ($conn->query($sql) === TRUE){
 		    		$data = array(
