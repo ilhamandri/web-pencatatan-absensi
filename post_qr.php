@@ -25,17 +25,17 @@
 	    		$error = "Anda sudah melakukan absensi";
 	    	}else{
 	    		$sql = "INSERT INTO absensi (matakuliah_id, mahasiswa_id, jam) VALUES ($matakuliah_id, $mahasiswa_id, CURRENT_TIMESTAMP)";
-	    	if ($conn->query($sql) === TRUE){
-	    		$token = md5($matakuliah_id.time());
-	    		$sql = "UPDATE jadwal SET token = '$token', last_update = CURRENT_TIMESTAMP WHERE id=$jadwal_id";
-	    		if ($conn->query($sql) === TRUE){
-		    		$data = array(
-			        	"kode" => $row["kode_matkul"],
-			        	"nama" => $row["nama_matkul"],
-			        	"ruang" => $row["nama_ruang"]
-			        );
-	    		}
-	    	}
+		    	if ($conn->query($sql) === TRUE){
+		    		$token = md5($matakuliah_id.time());
+		    		$sql = "UPDATE jadwal SET token = '$token', last_update = CURRENT_TIMESTAMP WHERE id=$jadwal_id";
+		    		if ($conn->query($sql) === TRUE){
+			    		$data = array(
+				        	"kode" => $row["kode_matkul"],
+				        	"nama" => $row["nama_matkul"],
+				        	"ruang" => $row["nama_ruang"]
+				        );
+		    		}
+		    	}
 	    	}
 	    	
 	    }

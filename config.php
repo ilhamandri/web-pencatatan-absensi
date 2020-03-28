@@ -52,6 +52,10 @@ switch($page){
   case 'absensi':
   include "views/absensi/absensi.php"; 
   break;
+
+  case 'absensi_mk':
+  include "views/absensi/absensi_mk.php"; 
+  break;
   
   default: 
   include "views/home.php";

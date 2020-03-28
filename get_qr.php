@@ -14,7 +14,8 @@
 	$id_ruang = $data["id_ruang"];
 
 	$jam = 9;
-	$sql = "SELECT (CURRENT_TIMESTAMP - last_update) AS diff, token, jadwal.id AS id_jadwal, jam_mulai, jam_selesai, matakuliah.nama AS nama_matkul, matakuliah.kode AS kode_matkul, ruang.nama AS nama_ruang FROM jadwal JOIN  matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang on ruang.id = jadwal.ruang_id WHERE ruang_id = $id_ruang AND jam_mulai <= $jam AND jam_selesai >= $jam";
+	$hari = 1;
+	$sql = "SELECT (CURRENT_TIMESTAMP - last_update) AS diff, token, jadwal.id AS id_jadwal, jam_mulai, jam_selesai, matakuliah.nama AS nama_matkul, matakuliah.kode AS kode_matkul, ruang.nama AS nama_ruang FROM jadwal JOIN  matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang on ruang.id = jadwal.ruang_id WHERE ruang_id = $id_ruang AND jam_mulai <= $jam AND jam_selesai >= $jam AND hari = $hari";
 	$result = mysqli_query($conn, $sql);
 	$data = array();
 	$new_token = "";

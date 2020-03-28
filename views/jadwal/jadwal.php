@@ -22,7 +22,6 @@
 		                		<tr class="blue-grey lighten-4">
 		                  			<th class="th-lg">Kode MatKul</th>
 		                  			<th class="th-lg">Nama MatKul</th>
-		                  			<th class="th-lg">Jenis</th>
 		                  			<th class="th-lg">Hari</th>
 		                  			<th class="th-lg">Jam</th>
 		                  			<th class="th-lg">Ruang</th>
@@ -40,7 +39,7 @@
 									    die("Connection failed: " . mysqli_connect_error());
 									}
 
-									$sql = "SELECT jadwal.id as jadwal_id, jam_mulai, jam_selesai, matakuliah.kode AS kode_matkul, matakuliah.nama AS nama_matkul, tipe, hari,  ruang.nama AS nama_ruang FROM jadwal JOIN matakuliah on matakuliah.id = jadwal.matakuliah_id JOIN ruang ON ruang.id = jadwal.ruang_id";
+									$sql = "SELECT jadwal.id as jadwal_id, jam_mulai, jam_selesai, matakuliah.kode AS kode_matkul, matakuliah.nama AS nama_matkul, hari,  ruang.nama AS nama_ruang FROM jadwal JOIN matakuliah on matakuliah.id = jadwal.matakuliah_id JOIN ruang ON ruang.id = jadwal.ruang_id";
 									$result = mysqli_query($conn, $sql);
 
 									if (mysqli_num_rows($result) > 0) {
@@ -48,19 +47,12 @@
 									        echo "<tr>";
 									        echo "<td>".$row["kode_matkul"]."</td>";
 				                  			echo "<td>".$row["nama_matkul"]."</td>";
-				                  			if($row["tipe"]=="1"){
-				                  				echo "<td>Teori</td>";
-				                  			}elseif ($row["tipe"]=="2") {
-				                  				echo "<td>Praktikum</td>";
-				                  			}else{
-				                  				echo "<td>Responsi</td>";
-				                  			}
 				                  			$hari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
 				                  			echo "<td>".$hari[$row["hari"]]."</td>";
 				                  			echo "<td>".$row["jam_mulai"]."-".$row["jam_selesai"]."</td>";
 				                  			echo "<td>".$row["nama_ruang"]."</td>";
 				                  			echo "<td>";
-				                  			echo "<a href='index.php?page=absensi&jadwal_id=".$row["jadwal_id"]."' class='btn btn-primary'> Absensi </a>";
+				                  			echo "<a href='index.php?page=absensi_mk&jadwal_id=".$row["jadwal_id"]."' class='btn btn-primary'> Absensi </a>";
 				                  			echo "</td>";
 									    }
 									} 
