@@ -15,7 +15,7 @@
 	if($data["email"]!=""){
 		$email = $data["email"];
 		$password = $data["password"];
-		$token = md5($email.$password);
+		$token = md5($email.$password.date("Y-m-d h:i:sa"));
 		$sql = "SELECT npm, mahasiswa.id AS mahasiswa_id, mahasiswa.nama AS nama_mahasiswa, email, prodi.nama AS nama_prodi FROM mahasiswa JOIN prodi ON prodi.id = mahasiswa.prodi_id  WHERE email='$email' AND password='$password'";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {

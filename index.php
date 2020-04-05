@@ -1,3 +1,28 @@
+<?php
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "skripsi";
+    $nama = "-";
+    $session_key = "=";
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    if(!isset($_SESSION["session_key"])){
+        header("Location: " . "http://localhost/ilham/login.php");
+    }else{
+      $session_key = $_SESSION["session_key"];
+      $sql = "SELECT nama from admin WHERE session='$session_key';";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+          $nama = $row["nama"];
+        }
+      }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,23 +73,18 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
       </div>
       <div class="breadcrumb-dn mr-auto">
-        <p>Dashboard v.3</p>
+        <p>Absensi</p>
       </div>
 
       <div class="d-flex change-mode">
-
-        <div class="ml-auto mb-0 mr-3 change-mode-wrapper">
-          <button class="btn btn-outline-black btn-sm" id="dark-mode">THEME MODE</button>
-        </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span>
+              <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block"><?php echo $nama; ?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="#">Log Out</a>
-              <a class="dropdown-item" href="#">My account</a>
+              <a class="dropdown-item" href="http://localhost/ilham/logout.php">Log Out</a>
             </div>
           </li>
         </ul>

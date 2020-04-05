@@ -5,7 +5,7 @@
             <div class="card mb-4">
               <div class="card-body">
                 <h5>
-                	Selamat Datang, _________ !
+                	Selamat Datang, <?php echo $nama ?>!
                 </h5>
                 <br>
                 <div class="row">
