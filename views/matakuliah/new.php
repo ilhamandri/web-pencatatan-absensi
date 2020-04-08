@@ -8,6 +8,7 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
+	$error = false;
 	if(isset($_POST['sks'])) {
 	  	$name = $_POST["name"];
 	  	$code = $_POST["code"];
@@ -18,11 +19,23 @@
 			echo "DATA BERHASIL DISIMPAN!";
 			header("Location: " . "http://localhost/ilham?page=matakuliah");
 		}else{
-			echo "ERROR!";
+			$error = true;
 		}
 	}
 ?>
 <div class="container-fluid">
+	<?php
+		if($error){
+	?>
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		  <strong>Data gagal ditambahkan. </strong> Silahkan memasukkan data secara benar dan lengkap.
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+	<?php
+		}
+	?>
     <section class="pb-3">
         <div class="row">
           	<div class="col-12">

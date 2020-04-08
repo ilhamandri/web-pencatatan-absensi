@@ -1,15 +1,6 @@
 <?php
     session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "skripsi";
-    $nama = "-";
-    $session_key = "=";
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    include 'connection.php';
     if(!isset($_SESSION["session_key"])){
         header("Location: " . "http://localhost/ilham/login.php");
     }else{
@@ -22,6 +13,8 @@
         }
       }
     }
+
+    $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

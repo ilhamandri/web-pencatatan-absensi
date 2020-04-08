@@ -6,27 +6,39 @@ switch($page){
   break;
   
   case 'matakuliah':
-  include "views/matakuliah/matakuliah.php";
+  include "views/matakuliah/index.php";
+  break;
+
+  case 'edit_matakuliah':
+  include "views/matakuliah/edit.php";
   break;
 
   case 'new_matakuliah':
-  include "views/matakuliah/new_matakuliah.php";
+  include "views/matakuliah/new.php";
   break;
   
   case 'mahasiswa':
-  include "views/mahasiswa/mahasiswa.php"; 
+  include "views/mahasiswa/index.php"; 
+  break;
+
+  case 'edit_mahasiswa':
+  include "views/mahasiswa/edit.php"; 
   break;
 
   case 'new_mahasiswa':
-  include "views/mahasiswa/new_mahasiswa.php"; 
+  include "views/mahasiswa/new.php"; 
   break;
   
   case 'ruang':
-  include "views/ruang/ruang.php"; 
+  include "views/ruang/index.php"; 
+  break;
+
+  case 'edit_ruang':
+  include "views/ruang/edit.php"; 
   break;
 
   case 'new_ruang':
-  include "views/ruang/new_ruang.php"; 
+  include "views/ruang/new.php"; 
   break;
 
   case 'mk-mahasiswa':
@@ -42,11 +54,11 @@ switch($page){
   break;
 
   case 'jadwal':
-  include "views/jadwal/jadwal.php"; 
+  include "views/jadwal/index.php"; 
   break;
 
   case 'new_jadwal':
-  include "views/jadwal/new_jadwal.php"; 
+  include "views/jadwal/new.php"; 
   break;
 
   case 'absensi':

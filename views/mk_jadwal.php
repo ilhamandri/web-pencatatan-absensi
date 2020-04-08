@@ -43,16 +43,14 @@
 			              	</thead>
 			              	<tbody>
 			              		<?php
-									$sql = "SELECT jadwal.id AS jadwal_id, matakuliah.id AS mk_id, jam_mulai, jam_selesai, hari, tipe, ruang.nama AS nama_ruang, ruang.gedung AS gedung, ruang.lantai AS lantai FROM jadwal JOIN matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang ON ruang.id = jadwal.ruang_id WHERE matakuliah.id = ".$matakuliah_id;
+									$sql = "SELECT jadwal.id AS jadwal_id, matakuliah.id AS mk_id, jam_mulai, jam_selesai, hari, ruang.nama AS nama_ruang, ruang.gedung AS gedung, ruang.lantai AS lantai FROM jadwal JOIN matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang ON ruang.id = jadwal.ruang_id WHERE matakuliah.id = ".$matakuliah_id;
 									$result = mysqli_query($conn, $sql);
 									$hari = array("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
-									$jenis = array("Teori", "Praktikum", "Responsi");
 									if (mysqli_num_rows($result) > 0) {
 									    while($row = mysqli_fetch_assoc($result)) {
 									        echo "<tr>";
 									        echo "<td>".$hari[$row["hari"]-1]."</td>";
 				                  			echo "<td>".$row["jam_mulai"]."-".$row["jam_selesai"]."</td>";
-				                  			echo "<td>".$jenis[$row["tipe"]-1]."</td>";
 				                  			echo "<td>".$row["nama_ruang"]." (".$row["gedung"].".".$row["lantai"].")</td>";
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=absensi_mk&jadwal_id=".$row["jadwal_id"]."' class='btn btn-success'> Absensi </a>";

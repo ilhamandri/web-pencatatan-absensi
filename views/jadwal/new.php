@@ -8,6 +8,8 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
+	$error = false;
+
 	if(isset($_POST['matakuliah_id'])) {
 	  	$matakuliah_id = $_POST["matakuliah_id"];
 	  	$hari = $_POST["hari"];
@@ -17,16 +19,26 @@
 	  	$token = md5(time().$matakuliah_id.$hari.$jam_mulai.$jam_selesai);
 		$sql = "INSERT INTO jadwal (matakuliah_id, hari, jam_mulai, jam_selesai, ruang_id, token, last_update)
 		VALUES ($matakuliah_id, $hari, $jam_mulai, $jam_selesai, $ruang_id,'$token', CURRENT_TIMESTAMP)";
-		echo $sql;
 		if(mysqli_query($conn, $sql)){
-			echo "DATA BERHASIL DISIMPAN!";
 			header("Location: " . "http://localhost/ilham?page=jadwal");
 		}else{
-			echo "ERROR!";
+			$error = true;
 		}
 	}
 ?>
 <div class="container-fluid">
+	<?php
+		if($error){
+	?>
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		  <strong>Data gagal ditambahkan. </strong> Silahkan memasukkan data secara benar dan lengkap.
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+	<?php
+		}
+	?>
     <section class="pb-3">
         <div class="row">
           	<div class="col-12">

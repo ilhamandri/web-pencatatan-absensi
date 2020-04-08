@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 06:30 PM
+-- Generation Time: Apr 08, 2020 at 06:42 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -40,12 +40,28 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id`, `matakuliah_id`, `mahasiswa_id`, `jam`) VALUES
-(1, 1, 1, '2020-03-06 10:38:12'),
-(2, 1, 2, '2020-03-06 10:38:12'),
-(3, 1, 1, '2020-03-06 10:44:09'),
-(4, 1, 1, '2020-03-25 17:28:40'),
-(5, 1, 1, '2020-03-25 17:29:20'),
-(6, 1, 1, '2020-03-25 17:29:41');
+(7, 1, 1, '2020-03-26 12:20:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(99) NOT NULL,
+  `email` varchar(99) NOT NULL,
+  `password` varchar(99) NOT NULL,
+  `session` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `nama`, `email`, `password`, `session`) VALUES
+(1, 'admin', 'admin@unpar.ac.id', 'admin123', 'bddcfce23ccad2813c9e41691f4d9b43');
 
 -- --------------------------------------------------------
 
@@ -58,7 +74,6 @@ CREATE TABLE `jadwal` (
   `matakuliah_id` bigint(99) NOT NULL,
   `jam_mulai` int(1) NOT NULL,
   `jam_selesai` int(1) NOT NULL,
-  `tipe` int(2) NOT NULL,
   `hari` int(1) NOT NULL,
   `ruang_id` bigint(99) NOT NULL,
   `token` text,
@@ -69,9 +84,10 @@ CREATE TABLE `jadwal` (
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `tipe`, `hari`, `ruang_id`, `token`, `last_update`) VALUES
-(1, 1, 7, 9, 1, 1, 1, '17c7117ca4ccecb2286be0ead41bfc1d', '2020-03-25 17:10:36'),
-(2, 2, 8, 11, 2, 2, 2, 'a021d9f19396a05b039b6fe5cdc9c1e3', '2020-03-24 17:00:00');
+INSERT INTO `jadwal` (`id`, `matakuliah_id`, `jam_mulai`, `jam_selesai`, `hari`, `ruang_id`, `token`, `last_update`) VALUES
+(1, 1, 7, 9, 1, 1, '9f0657027fed1efcd20849d9a25370cc', '2020-03-26 12:20:37'),
+(2, 2, 8, 11, 2, 2, 'a021d9f19396a05b039b6fe5cdc9c1e3', '2020-03-24 17:00:00'),
+(3, 1, 9, 12, 4, 2, '1d62b5633a971a4e38e862ab040d1f67', '2020-03-28 03:37:50');
 
 -- --------------------------------------------------------
 
@@ -94,9 +110,10 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `npm`, `nama`, `session_key`, `email`, `password`, `prodi_id`) VALUES
-(1, 2013730001, 'Ilham Andrian', '2a4aeeb964ba086e32795ef346ee32d4', 'ilham@unpar.ac.id', 'ilham', 1),
+(1, 2013730001, 'Ilham Andrians', '2a4aeeb964ba086e32795ef346ee32d4', 'ilham@unpar.ac.id', 'ilham', 1),
 (2, 2013730029, 'Kevin R', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL),
-(3, 2013730051, 'Fadel Amien', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL);
+(3, 20137300514, 'Walah', 'd41d8cd98f00b204e9800998ecf8427e', '', '', NULL),
+(4, 20137300512, 'Fadel Amien', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -117,10 +134,12 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`id`, `kode`, `nama`, `sks`, `absent`) VALUES
-(1, 'MK-001', 'Algoritma Struktur Dasar', 4, 3),
+(1, 'MK-001s', 'Algoritma Struktur Dasar', 4, 3),
 (2, 'MK-002', 'Pemrograman Berbasis Objek', 6, 4),
 (15, 'AIF512', 'ADBO', 4, 5),
-(16, 'AIF612', 'DAA', 4, 6);
+(16, 'AIF612', 'DAA', 4, 6),
+(17, 'AIF12332', 'Matkul1', 2, 0),
+(18, 'AIF1233', 'cantikmart', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -196,6 +215,12 @@ ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
@@ -239,25 +264,31 @@ ALTER TABLE `ruang`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  MODIFY `id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `mk_mahasiswa`

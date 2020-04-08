@@ -1,12 +1,5 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "skripsi";
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
-	}
+    include '../connection.php';
 	$session_key = "123456789";
 
 	$data = json_decode(file_get_contents('php://input'), true);
