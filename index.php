@@ -43,12 +43,16 @@
         <li>
           <ul class="collapsible collapsible-accordion">
             <li>
+              <a href="index.php?page=prodi" class="collapsible-header waves-effect"><i
+                  class="w-fa fas fa-graduation-cap"></i>Prodi</a>
+            </li>
+            <li>
               <a href="index.php?page=matakuliah" class="collapsible-header waves-effect"><i
-                  class="w-fa fas fa-users"></i>Mata Kuliah</a>
+                  class="w-fa fas fa-book"></i>Mata Kuliah</a>
             </li>
             <li>
               <a href="index.php?page=ruang" class="collapsible-header waves-effect"><i
-                  class="w-fa fas fa-users"></i>Ruang</a>
+                  class="w-fa fas fa-home"></i>Ruang</a>
             </li>
             <li>
               <a href="index.php?page=mahasiswa" class="collapsible-header waves-effect"><i

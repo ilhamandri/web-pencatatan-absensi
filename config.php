@@ -80,6 +80,25 @@ switch($page){
   case 'absensi_mk':
   include "views/absensi/absensi_mk.php"; 
   break;
+
+  case 'prodi':
+  include "views/prodi/index.php"; 
+  break;
+
+  case 'new_prodi':
+  include "views/prodi/new.php"; 
+  break;
+
+  case 'edit_prodi':
+  include "views/prodi/edit.php"; 
+  break;
+
+  case 'delete_prodi':
+  include "views/prodi/delete.php"; 
+  break;
+
+
+
   
   default: 
   include "views/home.php";

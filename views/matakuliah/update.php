@@ -1,4 +1,5 @@
 <?php
+    include '../../connection.php';
 	$id   = $_GET['id'];
 	$kode = $_POST['kode'];
 	$nama = $_POST['nama'];
