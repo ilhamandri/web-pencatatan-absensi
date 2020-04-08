@@ -11,10 +11,11 @@
         while($row = mysqli_fetch_assoc($result)) {
           $nama = $row["nama"];
         }
+      }else{
+        $conn->close();
       }
     }
 
-    $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -13,6 +13,10 @@ switch($page){
   include "views/matakuliah/edit.php";
   break;
 
+  case 'delete_matakuliah':
+  include "views/matakuliah/delete.php";
+  break;
+
   case 'new_matakuliah':
   include "views/matakuliah/new.php";
   break;
@@ -25,6 +29,10 @@ switch($page){
   include "views/mahasiswa/edit.php"; 
   break;
 
+  case 'delete_mahasiswa':
+  include "views/mahasiswa/delete.php"; 
+  break;
+
   case 'new_mahasiswa':
   include "views/mahasiswa/new.php"; 
   break;
@@ -35,6 +43,10 @@ switch($page){
 
   case 'edit_ruang':
   include "views/ruang/edit.php"; 
+  break;
+
+  case 'delete_ruang':
+  include "views/ruang/delete.php"; 
   break;
 
   case 'new_ruang':

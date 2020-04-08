@@ -1,13 +1,4 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "skripsi";
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
-	}
-
 	$error = false;
 
 	if(isset($_POST['npm'])) {
@@ -15,8 +6,9 @@
 	  	$name = $_POST["nama"];
 	  	$email = $_POST["email"];
 	  	$password = $_POST["password"];
-		$sql = "INSERT INTO mahasiswa (nama, npm, email, password)
-		VALUES ('$name', $npm, '$email', ,'$password')";
+	  	$prodi_id = $_POST["prodi_id"];
+		$sql = "INSERT INTO mahasiswa (nama, npm, email, password, prodi_id)
+		VALUES ('$name', $npm, '$email','$password', $prodi_id)";
 		if(mysqli_query($conn, $sql)){
 			echo "DATA BERHASIL DISIMPAN!";
 			header("Location: " . "http://localhost/ilham?page=mahasiswa");
@@ -69,7 +61,22 @@
 				                <input type="password" id="" class="form-control" name="password">
 				                <label for="">Kata Sandi</label>
 				            </div>
-				            
+
+				            <div class="md-form mt-3">
+					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Mata Kuliah ...">
+	  								<option value="" disabled selected>Pilih Mata Kuliah</option>
+	  								<?php
+	  									$sql = "SELECT nama, id FROM prodi;";
+	  									$result = mysqli_query($conn, $sql);
+										if (mysqli_num_rows($result) > 0) {
+		    								while($row = mysqli_fetch_assoc($result)) {
+		    									echo "<option value='".$row["id"]."'>".$row["nama"]."</option>";
+		    								}
+		    							}
+	  								?>
+	  							</select>
+  							</div>
+
 				            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" name="submit">Tambah</button>
 
 				        </form>

@@ -6,15 +6,7 @@
             	<?php
             		$mahasiswa_id = (isset($_GET['id']))? $_GET['id'] : '';
 
-            		$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$dbname = "skripsi";
-					$conn = mysqli_connect($servername, $username, $password, $dbname);
-					if (!$conn) {
-					    die("Connection failed: " . mysqli_connect_error());
-					}
-
+            		
 					$sql = "SELECT nama, npm FROM mahasiswa WHERE id=".$mahasiswa_id;
 					$result = mysqli_query($conn, $sql);
 

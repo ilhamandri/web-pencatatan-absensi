@@ -7,15 +7,6 @@
             		$mahasiswa_id = (isset($_GET['mahasiswa_id']))? $_GET['mahasiswa_id'] : '';
             		$matakuliah_id = (isset($_GET['matakuliah_id']))? $_GET['matakuliah_id'] : '';
 
-            		$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$dbname = "skripsi";
-					$conn = mysqli_connect($servername, $username, $password, $dbname);
-					if (!$conn) {
-					    die("Connection failed: " . mysqli_connect_error());
-					}
-
 					$sql = "SELECT nama, absent FROM matakuliah WHERE id=".$matakuliah_id;
 					$result = mysqli_query($conn, $sql);
 					$nama_matkul = "";

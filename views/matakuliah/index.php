@@ -28,14 +28,6 @@
 			              	</thead>
 			              	<tbody>
 			              		<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "skripsi";
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									if (!$conn) {
-									    die("Connection failed: " . mysqli_connect_error());
-									}
 
 									$sql = "SELECT id, kode, nama, sks FROM matakuliah";
 									$result = mysqli_query($conn, $sql);
@@ -47,7 +39,8 @@
 				                  			echo "<td>".$row["nama"]."</td>";
 				                  			echo "<td>".$row["sks"]."</td>";
 				                  			echo "<td>";
-				                  			echo "<a href='index.php?page=edit_matakuliah&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";
+				                  			echo "<a href='index.php?page=edit_matakuliah&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>  &nbsp&nbsp";
+				                  			echo "<a href='index.php?page=delete_matakuliah&id=".$row["id"]."' class='btn btn-danger'> Hapus </a>  &nbsp&nbsp";
 				                  			echo "<a href='index.php?page=mk-mahasiswa&id=".$row["id"]."' class='btn btn-primary'> Mahasiswa </a> &nbsp&nbsp";
 				                  			echo "<a href='index.php?page=mk-jadwal&id=".$row["id"]."' class='btn btn-success'> Jadwal </a>";
 				                  			echo "</td>";
