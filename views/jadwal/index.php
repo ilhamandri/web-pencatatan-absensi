@@ -30,14 +30,6 @@
 			              	</thead>
 			              	<tbody>
 			              		<?php
-									$servername = "localhost";
-									$username = "root";
-									$password = "";
-									$dbname = "skripsi";
-									$conn = mysqli_connect($servername, $username, $password, $dbname);
-									if (!$conn) {
-									    die("Connection failed: " . mysqli_connect_error());
-									}
 
 									$sql = "SELECT jadwal.id as jadwal_id, jam_mulai, jam_selesai, matakuliah.kode AS kode_matkul, matakuliah.nama AS nama_matkul, hari,  ruang.nama AS nama_ruang FROM jadwal JOIN matakuliah on matakuliah.id = jadwal.matakuliah_id JOIN ruang ON ruang.id = jadwal.ruang_id";
 									$result = mysqli_query($conn, $sql);

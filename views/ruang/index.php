@@ -40,7 +40,7 @@
 				                  			echo "<td>".$row["lantai"]."</td>";
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=edit_ruang&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>  &nbsp&nbsp";
-				                  			echo "<a href='index.php?page=delete_ruang&id=".$row["id"]."' class='btn btn-danger'> Hapus </a>";
+				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'ruang\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';
 				                  			echo "</td>";
 									    }
 									} 
@@ -57,3 +57,4 @@
         </div>
     </section>
 </div>
+

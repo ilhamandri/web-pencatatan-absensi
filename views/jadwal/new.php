@@ -1,13 +1,4 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "skripsi";
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
-	}
-
 	$error = false;
 
 	if(isset($_POST['matakuliah_id'])) {
@@ -16,7 +7,7 @@
 	  	$jam_mulai = $_POST["jam_mulai"];
 	  	$jam_selesai = $_POST["jam_selesai"];
 	  	$ruang_id = $_POST["ruang_id"];
-	  	$token = md5(time().$matakuliah_id.$hari.$jam_mulai.$jam_selesai);
+	  	$token = md5(time()."JADWAL");
 		$sql = "INSERT INTO jadwal (matakuliah_id, hari, jam_mulai, jam_selesai, ruang_id, token, last_update)
 		VALUES ($matakuliah_id, $hari, $jam_mulai, $jam_selesai, $ruang_id,'$token', CURRENT_TIMESTAMP)";
 		if(mysqli_query($conn, $sql)){
@@ -51,7 +42,7 @@
 
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
-				            <select name="matakuliah_id" class="mdb-select md-form" searchable="Cari Mata Kuliah ...">
+				            <select name="matakuliah_id" class="mdb-select md-form" searchable="Cari Mata Kuliah ..." required>
   								<option value="" disabled selected>Pilih Mata Kuliah</option>
   								<?php
   									$sql = "SELECT nama, id, kode FROM matakuliah;";
@@ -64,7 +55,7 @@
   								?>
   							</select>
 
-  							<select name="ruang_id" class="mdb-select md-form" searchable="Cari Ruang ...">
+  							<select name="ruang_id" class="mdb-select md-form" searchable="Cari Ruang ..."  required>
   								<option value="" disabled selected>Pilih Ruang</option>
   								<?php
   									$sql = "SELECT id, nama, gedung, lantai FROM ruang;";

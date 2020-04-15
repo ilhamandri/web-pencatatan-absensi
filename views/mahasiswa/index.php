@@ -37,8 +37,8 @@
 									        echo "<td>".$row["npm"]."</td>";
 				                  			echo "<td>".$row["nama"]."</td>";
 				                  			echo "<td>";
-				                  			echo "<a href='index.php?page=edit_mahasiswa&id=".$row["id"]."' class='btn btn-warning'> Ubah </a> &nbsp";
-				                  			echo "<a href='index.php?page=delete_mahasiswa&id=".$row["id"]."' class='btn btn-danger'> Hapus </a> &nbsp";
+				                  			echo "<a href='index.php?page=edit_mahasiswa&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";
+				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'mahasiswa\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';
 				                  			echo "<a href='index.php?page=mahasiswa-mk&id=".$row["id"]."' class='btn btn-primary'> Mata Kuliah </a>";
 				                  			echo "</td>";
 									    }

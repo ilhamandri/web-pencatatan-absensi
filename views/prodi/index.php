@@ -36,7 +36,7 @@
 									        echo "<tr>";
 				                  			echo "<td>".$row["nama"]."</td>";
 				                  			echo "<td><a href='index.php?page=edit_prodi&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>  &nbsp&nbsp";
-				                  			echo "<a href='index.php?page=delete_prodi&id=".$row["id"]."' class='btn btn-danger'> Hapus </a>  &nbsp&nbsp";
+				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'prodi\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';
 				                  			echo "</td>";
 									    }
 									} 

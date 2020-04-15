@@ -93,6 +93,47 @@
     <?php include "config.php";?>
   </main>
 
+  <button type="button" id="modal-button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalDanger" style="display: none;">Hapus</button>
+
+  <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog modal-notify modal-danger" role="document">
+       <!--Content-->
+       <div class="modal-content">
+         <!--Header-->
+         <div class="modal-header">
+           <p class="heading lead">Konfirmasi</p>
+
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true" class="white-text">&times;</span>
+           </button>
+         </div>
+
+         <!--Body-->
+         <div class="modal-body">
+           <div class="text-center">
+             <i class="fas fa-trash fa-4x mb-3 animated rotateIn"></i>
+             <p>Apakah anda yakin akan menghapus </p>
+             <h2>
+                <span class="badge">
+                  <div id="content">
+                    123456789
+                  </div>
+                </span>
+             </h2>
+           </div>
+         </div>
+
+         <!--Footer-->
+         <div class="modal-footer justify-content-center">
+           <a type="button" class="btn btn-danger" href="" id="delete_link">YA <i class="fas fa-check ml-1 text-white"></i></a>
+           <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">BATAL<i class="fas fa-times ml-1 text-red"></i></a>
+         </div>
+       </div>
+       <!--/.Content-->
+     </div>
+   </div>
+
 
   <!-- <footer class="page-footer pt-0 mt-5 rgba-stylish-light">
     <div class="footer-copyright py-3 text-center">
@@ -139,6 +180,13 @@
     $(document).ready(function() {
       $('.mdb-select').materialSelect();
     });
+
+    function launchModal(object_type, name, id){
+      var url = "index.php?page=delete_" + object_type + "&id=" + id;
+      document.getElementById("content").innerHTML = name; 
+      document.getElementById("delete_link").href=url; 
+      document.getElementById("modal-button").click()
+    }
   </script>
 
 </body>
