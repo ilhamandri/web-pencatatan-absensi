@@ -26,8 +26,8 @@
 		                		<tr class="blue-grey lighten-4">
 		                  			<th class="th-lg">Hari</th>
 		                  			<th class="th-lg">Jam</th>
-		                  			<th class="th-lg">Jenis</th>
 		                  			<th class="th-lg">Ruang</th>
+		                  			<th class="th-lg">Aksi</th>
 		                  			<th></th>
 		                		</tr>
 			              	</thead>

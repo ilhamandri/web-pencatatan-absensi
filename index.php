@@ -43,6 +43,10 @@
         <li>
           <ul class="collapsible collapsible-accordion">
             <li>
+              <a href="index.php" class="collapsible-header waves-effect"><i
+                  class="w-fa fas fa-desktop"></i>Beranda</a>
+            </li>
+            <li>
               <a href="index.php?page=prodi" class="collapsible-header waves-effect"><i
                   class="w-fa fas fa-graduation-cap"></i>Prodi</a>
             </li>
@@ -179,6 +183,7 @@
 
     $(document).ready(function() {
       $('.mdb-select').materialSelect();
+      startTime();
     });
 
     function launchModal(object_type, name, id){
@@ -186,6 +191,26 @@
       document.getElementById("content").innerHTML = name; 
       document.getElementById("delete_link").href=url; 
       document.getElementById("modal-button").click()
+    }
+
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      txt = document.getElementById('txt');
+      if (txt != null){
+        txt.innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+      }
+    }
+
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
     }
   </script>
 

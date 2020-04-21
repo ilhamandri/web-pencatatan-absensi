@@ -69,6 +69,14 @@ switch($page){
   include "views/jadwal/index.php"; 
   break;
 
+  case 'edit_jadwal':
+  include "views/jadwal/edit.php"; 
+  break;
+
+  case 'delete_jadwal':
+  include "views/jadwal/delete.php"; 
+  break;
+
   case 'new_jadwal':
   include "views/jadwal/new.php"; 
   break;

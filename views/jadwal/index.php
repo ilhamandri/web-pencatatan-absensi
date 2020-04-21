@@ -44,6 +44,9 @@
 				                  			echo "<td>".$row["jam_mulai"]."-".$row["jam_selesai"]."</td>";
 				                  			echo "<td>".$row["nama_ruang"]."</td>";
 				                  			echo "<td>";
+				                  			echo "<a href='index.php?page=edit_jadwal&id=".$row["jadwal_id"]."' class='btn btn-warning'> Ubah </a>";
+				                  			$nama =  $row["nama_matkul"]."(".$row["nama_ruang"].")";
+				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'jadwal\',\''.$nama.'\', \''.$row["jadwal_id"].'\')">Hapus</button>';
 				                  			echo "<a href='index.php?page=absensi_mk&jadwal_id=".$row["jadwal_id"]."' class='btn btn-primary'> Absensi </a>";
 				                  			echo "</td>";
 									    }

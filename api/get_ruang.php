@@ -1,11 +1,9 @@
 <?php
-	include 'check_session.php';
 	// required headers
 	header("Access-Control-Allow-Origin: *");
 	header("Content-Type: application/json; charset=UTF-8");
 	 
 	// database connection will be here
-	$mahasiswa_id = $mahasiswa['id'];
 	$sql = "SELECT ruang.id AS id, ruang.nama AS nama FROM ruang";
 	$result = mysqli_query($conn, $sql);
 	$ruang_arr = array();
