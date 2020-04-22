@@ -61,8 +61,16 @@ switch($page){
   include "views/mk_jadwal.php"; 
   break;
 
-  case 'mahasiswa-mk':
-  include "views/mahasiswa_mk.php"; 
+  case 'mahasiswa_mk':
+  include "views/mahasiswa_mk/index.php"; 
+  break;
+
+  case 'delete_mahasiswa_mk':
+  include "views/mahasiswa_mk/delete.php"; 
+  break;
+
+  case 'new_mahasiswa_mk':
+  include "views/mahasiswa_mk/new.php"; 
   break;
 
   case 'jadwal':
@@ -82,7 +90,7 @@ switch($page){
   break;
 
   case 'absensi':
-  include "views/absensi/absensi.php"; 
+  include "views/absensi/index.php"; 
   break;
 
   case 'absensi_mk':

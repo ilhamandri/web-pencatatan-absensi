@@ -39,7 +39,7 @@
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=edit_mahasiswa&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";
 				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'mahasiswa\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';
-				                  			echo "<a href='index.php?page=mahasiswa-mk&id=".$row["id"]."' class='btn btn-primary'> Mata Kuliah </a>";
+				                  			echo "<a href='index.php?page=mahasiswa_mk&id=".$row["id"]."' class='btn btn-primary'> Mata Kuliah </a>";
 				                  			echo "</td>";
 									    }
 									} 

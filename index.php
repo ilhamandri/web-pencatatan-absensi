@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/mdb.min.css">
   <style>
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="fixed-sn white-skin">
@@ -75,20 +76,12 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
       </div>
       <div class="breadcrumb-dn mr-auto">
-        <p>Absensi</p>
+        <p>Pencatatan Web Absensi - Ilham Andrian ( 2013730056 )</p>
       </div>
 
       <div class="d-flex change-mode">
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block"><?php echo $nama; ?></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="http://localhost/ilham/logout.php">Log Out</a>
-            </div>
-          </li>
+          <a class="dropdown-item" href="http://localhost/ilham/logout.php">Keluar <i class="w-fa fa fa-sign-out"></i></a>
         </ul>
       </div>
     </nav>

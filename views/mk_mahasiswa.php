@@ -1,6 +1,13 @@
 <div class="container-fluid">
     <section class="pb-3">
         <div class="row">
+          <div class="col-12 text-right">
+          	<a href="?page=new_mahasiswa_mk&id=<?php echo $_GET['id'] ?>">
+    			<button class="btn btn-warning  text-right">
+    				Tambah Mahasiswa
+    			</button>
+    		</a>
+          </div>
           <div class="col-12">
             <div class="card">
             	<?php
