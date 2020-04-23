@@ -119,10 +119,13 @@
     }
   ?>
   <div class="login-triangle"></div>
-  
-  <h2 class="login-header">Log in</h2>
+  <h2 class="login-header">LOGIN</h2>
 
   <form class="login-container" method="POST" action="" >
+
+    <div style="text-align: center;vertical-align: middle;">
+      <img src="img/logo.png" width="30%">
+    </div>
     <p><input type="email" name="email" placeholder="Email"></p>
     <p><input type="password" name="password" placeholder="Password"></p>
     <p><input type="submit" value="Log in"></p>

@@ -48,7 +48,7 @@
 				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'mahasiswa_mk\',\''.$name.'\', \''.$row["id"].'\')">Hapus</button>';
 				                  			echo "<a href='index.php?page=absensi&mahasiswa_id=".$row["mahasiswa_id"]."&matakuliah_id=".$row["mk_id"]."' class='btn btn-primary'> Absensi </a>";
 				                  			echo "&nbsp &nbsp";
-				                  			echo "<a href='index.php?page=mk-jadwal&id=".$row["mahasiswa_id"]."' class='btn btn-success'> Jadwal </a>";
+				                  			echo "<a href='index.php?page=mk-jadwal&id=".$row["mk_id"]."' class='btn btn-success'> Jadwal </a>";
 				                  			echo "</td>";
 									    }
 									} 

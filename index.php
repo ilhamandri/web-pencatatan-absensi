@@ -38,7 +38,7 @@
       <ul class="custom-scrollbar">
         <li class="logo-sn waves-effect py-3">
           <div class="text-center">
-            <a href="#" class="pl-0"><img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"></a>
+            <a href="#" class="pl-0"><img src="img/logo.png" width="30%"></a>
           </div>
         </li>
         <li>
@@ -75,8 +75,8 @@
       <div class="float-left">
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
       </div>
-      <div class="breadcrumb-dn mr-auto">
-        <p>Pencatatan Web Absensi - Ilham Andrian ( 2013730056 )</p>
+      <div class="breadcrumb-dn mr-auto text-center">
+        <p>Pencatatan Web Absensi</p>
       </div>
 
       <div class="d-flex change-mode">

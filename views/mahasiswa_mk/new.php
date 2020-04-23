@@ -38,8 +38,7 @@
 
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
-				            <select name="matakuliah_id" class="mdb-select md-form" searchable="Cari Mata Kuliah ..." required>
-  								<option value="" disabled selected>Pilih Mata Kuliah</option>
+				            <select name="matakuliah_id" class="mdb-select md-form" required>
   								<?php
   									$mk = "";
   									$mk_id = $_GET['id'];
@@ -53,7 +52,7 @@
   								?>
   							</select>
 
-  							<select name="mahasiswa_id" class="mdb-select md-form" searchable="Cari Ruang ..."  required>
+  							<select name="mahasiswa_id" class="mdb-select md-form" searchable="Cari Mahasiswa ..."  required>
   								<option value="" disabled selected>Pilih Mahasiswa</option>
   								<?php
   									$sql = "SELECT id, nama, npm FROM mahasiswa;";

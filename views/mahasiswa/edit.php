@@ -24,6 +24,20 @@
 				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>">
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
+
+				            <div class="md-form mt-3">
+					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ...">
+	  								<?php
+	  									$sql = "SELECT nama, id FROM prodi;";
+	  									$result = mysqli_query($conn, $sql);
+										if (mysqli_num_rows($result) > 0) {
+		    								while($row = mysqli_fetch_assoc($result)) {
+		    									echo "<option value='".$row["id"]."'>".$row["nama"]."</option>";
+		    								}
+		    							}
+	  								?>
+	  							</select>
+  							</div>
 				            
 				            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" name="submit">Ubah</button>
 

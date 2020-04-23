@@ -63,8 +63,7 @@
 				            </div>
 
 				            <div class="md-form mt-3">
-					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Mata Kuliah ...">
-	  								<option value="" disabled selected>Pilih Prodi</option>
+					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ...">
 	  								<?php
 	  									$sql = "SELECT nama, id FROM prodi;";
 	  									$result = mysqli_query($conn, $sql);
