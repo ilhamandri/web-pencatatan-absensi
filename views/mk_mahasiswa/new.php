@@ -7,7 +7,7 @@
 		$sql = "INSERT INTO mk_mahasiswa (matakuliah_id, mahasiswa_id)
 		VALUES ($matakuliah_id, $mahasiswa_id)";
 		if(mysqli_query($conn, $sql)){
-			header("Location: " . "http://localhost/ilham?page=mahasiswa_mk&id=".$mahasiswa_id);
+			header("Location: " . "http://localhost/ilham?page=mk_mahasiswa&id=".$matakuliah_id);
 		}else{
 			$error = true;
 		}
@@ -38,22 +38,11 @@
 
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
-				        	<select name="mahasiswa_id" class="mdb-select md-form"  required>
+				            <select name="matakuliah_id" class="mdb-select md-form" required>
   								<?php
-  									$mahasiswa_id = $_GET['id'];
-  									$sql = "SELECT id, nama, npm FROM mahasiswa WHERE id=$mahasiswa_id;";
-  									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-	    								while($row = mysqli_fetch_assoc($result)) {
-	    									echo "<option value='".$row["id"]."'>".$row["nama"]." - ".$row["npm"]."</option>";
-	    								}
-	    							}
-  								?>
-  							</select>
-
-				            <select name="matakuliah_id" class="mdb-select md-form" required searchable="Cari Matakuliah ...">
-  								<?php
-  									$sql = "SELECT nama, id, kode FROM matakuliah;";
+  									$mk = "";
+  									$mk_id = $_GET['id'];
+  									$sql = "SELECT nama, id, kode FROM matakuliah WHERE id=$mk_id;";
   									$result = mysqli_query($conn, $sql);
 									if (mysqli_num_rows($result) > 0) {
 	    								while($row = mysqli_fetch_assoc($result)) {
@@ -63,7 +52,18 @@
   								?>
   							</select>
 
-  							
+  							<select name="mahasiswa_id" class="mdb-select md-form" searchable="Cari Mahasiswa ..."  required>
+  								<option value="" disabled selected>Pilih Mahasiswa</option>
+  								<?php
+  									$sql = "SELECT id, nama, npm FROM mahasiswa;";
+  									$result = mysqli_query($conn, $sql);
+									if (mysqli_num_rows($result) > 0) {
+	    								while($row = mysqli_fetch_assoc($result)) {
+	    									echo "<option value='".$row["id"]."'>".$row["nama"]." - ".$row["npm"]."</option>";
+	    								}
+	    							}
+  								?>
+  							</select>
 				            
 				            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" name="submit">Tambah</button>
 

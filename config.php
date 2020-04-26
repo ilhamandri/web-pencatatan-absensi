@@ -77,6 +77,10 @@ switch($page){
   include "views/mahasiswa_mk/new.php"; 
   break;
 
+  case 'new_mk_mahasiswa':
+  include "views/mk_mahasiswa/new.php"; 
+  break;
+
   case 'jadwal':
   include "views/jadwal/index.php"; 
   break;

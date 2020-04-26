@@ -23,7 +23,7 @@
 	if(count($ruang_arr) > 0){
 		echo json_encode(array(
     		"STATUS_CODE" => "OK",
-			"matakuliah" => $ruang_arr
+			"ruang" => $ruang_arr
 		));
 	}else{
 		echo json_encode(array(
