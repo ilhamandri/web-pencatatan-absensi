@@ -38,7 +38,7 @@
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="nama">
+				                <input type="text" id="materialContactFormName" class="form-control" name="nama" required>
 				                <label for="materialContactFormName">Nama Prodi</label>
 				            </div>
 

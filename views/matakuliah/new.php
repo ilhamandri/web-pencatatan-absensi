@@ -40,17 +40,17 @@
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="code">
+				                <input type="text" id="materialContactFormName" class="form-control" name="code" required>
 				                <label for="materialContactFormName">Kode MatKul</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="name">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="name" required>
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" required min="14" max="42">
 				                <label for="materialContactFormEmail">SKS</label>
 				            </div>
 

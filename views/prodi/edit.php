@@ -16,7 +16,7 @@
 				        <form class="text-center" style="color: #757575;" action="views/prodi/update.php?id=<?php echo $data['id'] ?>" method="POST">
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>" required>
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
 				            

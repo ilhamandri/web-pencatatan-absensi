@@ -40,17 +40,17 @@
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="nama">
+				                <input type="text" id="materialContactFormName" class="form-control" name="nama" required>
 				                <label for="materialContactFormName">Nama Ruang</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="gedung">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="gedung" required>
 				                <label for="materialContactFormEmail">Gedung</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="lantai">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="lantai" required>
 				                <label for="materialContactFormEmail">Lantai</label>
 				            </div>
 				            

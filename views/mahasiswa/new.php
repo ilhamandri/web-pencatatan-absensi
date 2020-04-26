@@ -43,27 +43,27 @@
 				        <form class="text-center" style="color: #757575;" action="" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="npm">
+				                <input type="text" id="materialContactFormName" class="form-control" name="npm" required>
 				                <label for="">NPM</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" required>
 				                <label for="">Nama</label>
 				            </div>
 
 				            <div class="md-form mt-3">
-				                <input type="email" id="materialContactFormName" class="form-control" name="email">
+				                <input type="email" id="materialContactFormName" class="form-control" name="email" required>
 				                <label for="">Email</label>
 				            </div>
 
 				            <div class="md-form mt-3">
-				                <input type="password" id="" class="form-control" name="password">
+				                <input type="password" id="" class="form-control" name="password" required>
 				                <label for="">Kata Sandi</label>
 				            </div>
 
 				            <div class="md-form mt-3">
-					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ...">
+					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ..." required>
 	  								<?php
 	  									$sql = "SELECT nama, id FROM prodi;";
 	  									$result = mysqli_query($conn, $sql);

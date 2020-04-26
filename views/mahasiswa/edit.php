@@ -16,17 +16,17 @@
 				        <form class="text-center" style="color: #757575;" action="views/mahasiswa/update.php?id=<?php echo $data['id'] ?>" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="npm" value="<?php echo $data['npm'] ?>">
+				                <input type="text" id="materialContactFormName" class="form-control" name="npm" value="<?php echo $data['npm'] ?>" required>
 				                <label for="materialContactFormName">NPM</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>" required>
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
 
 				            <div class="md-form mt-3">
-					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ...">
+					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ..." required>
 	  								<?php
 	  									$sql = "SELECT nama, id FROM prodi;";
 	  									$result = mysqli_query($conn, $sql);

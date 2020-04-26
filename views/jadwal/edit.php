@@ -68,13 +68,13 @@
 				            <div class="row">
 				            	<div class="col">
 				            		<div class="md-form">
-						                <input name="jam_mulai"  value="<?php echo $data['jam_mulai']?>" type="number" min="7" id="materialContactFormEmail" class="form-control" name="nama" required="required">
+						                <input name="jam_mulai"  value="<?php echo $data['jam_mulai']?>" type="number" min="7" id="materialContactFormEmail" class="form-control" name="nama" required="required" max="19">
 						                <label for="materialContactFormEmail">Jam Mulai</label>
 				            		</div>	
 				            	</div>
 				            	<div class="col">
 				            		<div class="md-form">
-						                <input name="jam_selesai" type="number" required="required" min="7" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['jam_selesai']?>">
+						                <input name="jam_selesai" type="number" required="required" min="7" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['jam_selesai']?>" max="19">
 						                <label for="materialContactFormEmail">Jam Selesai</label>
 						            </div>
 				            	</div>

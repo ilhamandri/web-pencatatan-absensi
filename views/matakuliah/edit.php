@@ -16,22 +16,22 @@
 				        <form class="text-center" style="color: #757575;" action="views/matakuliah/update.php?id=<?php echo $data['id'] ?>" method="POST">
 
 				            <div class="md-form mt-3">
-				                <input type="text" id="materialContactFormName" class="form-control" name="kode" value="<?php echo $data['kode'] ?>">
+				                <input type="text" id="materialContactFormName" class="form-control" name="kode" value="<?php echo $data['kode'] ?>" required>
 				                <label for="materialContactFormName">Kode MatKul</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['nama'] ?>" required>
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" value="<?php echo $data['sks'] ?>">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" min="2" max="6" value="<?php echo $data['sks'] ?>" required>
 				                <label for="materialContactFormEmail">SKS</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="absent" value="<?php echo $data['absent'] ?>">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="absent" min="14" max="42" value="<?php echo $data['absent'] ?>" required>
 				                <label for="materialContactFormEmail">Jumlah Tatap Muka</label>
 				            </div>
 
