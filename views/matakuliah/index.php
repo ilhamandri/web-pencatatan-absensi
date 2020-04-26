@@ -41,7 +41,7 @@
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=edit_matakuliah&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";
 				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'matakuliah\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';
-				                  			echo "<a href='index.php?page=mk-mahasiswa&id=".$row["id"]."' class='btn btn-primary'> Mahasiswa </a> &nbsp&nbsp";
+				                  			echo "<a href='index.php?page=mk_mahasiswa&id=".$row["id"]."' class='btn btn-primary'> Mahasiswa </a> &nbsp&nbsp";
 				                  			echo "<a href='index.php?page=mk-jadwal&id=".$row["id"]."' class='btn btn-success'> Jadwal </a>";
 				                  			echo "</td>";
 									    }

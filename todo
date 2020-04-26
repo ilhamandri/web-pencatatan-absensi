@@ -1,2 +1,1 @@
-- MK_MHS => hapus mahasiswa --> kembalinya ke halaman index mahasiswa bukan ke index matkul
-udah waak
+- mahasiswa_mk + mk_mahasiswa -- reedirect ke halaman itu lagi (tambah 1 param di JS)

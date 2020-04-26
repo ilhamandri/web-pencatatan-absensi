@@ -53,8 +53,12 @@ switch($page){
   include "views/ruang/new.php"; 
   break;
 
-  case 'mk-mahasiswa':
-  include "views/mk_mahasiswa.php"; 
+  case 'mk_mahasiswa':
+  include "views/mk_mahasiswa/index.php"; 
+  break;
+
+  case 'delete_mk_mahasiswa':
+  include "views/mk_mahasiswa/delete.php"; 
   break;
 
   case 'mk-jadwal':
