@@ -50,7 +50,7 @@
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" required min="14" max="42">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" required min="2" max="42">
 				                <label for="materialContactFormEmail">SKS</label>
 				            </div>
 
