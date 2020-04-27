@@ -6,6 +6,18 @@
 	$token = $data["token"];
 	$id_ruang = $data["id_ruang"];
 
+	$days = array(
+	    1 => 'Monday',
+	    2 => 'Tuesday',
+	    3 => 'Wednesday',
+	    4 => 'Thursday',
+	    5 => 'Friday',
+	    6 => 'Saturday',
+	    7 => 'Sunday'
+	);
+	// $jam = date('h');
+	// $hari = array_search (date('l'), $days)
+	
 	$jam = 9;
 	$hari = 1;
 	$sql = "SELECT (CURRENT_TIMESTAMP - last_update) AS diff, token, jadwal.id AS id_jadwal, jam_mulai, jam_selesai, matakuliah.nama AS nama_matkul, matakuliah.kode AS kode_matkul, ruang.nama AS nama_ruang FROM jadwal JOIN  matakuliah ON matakuliah.id = jadwal.matakuliah_id JOIN ruang on ruang.id = jadwal.ruang_id WHERE ruang_id = $id_ruang AND jam_mulai <= $jam AND jam_selesai >= $jam AND hari = $hari";
@@ -21,10 +33,11 @@
 	    	$minute = (int)date("i",$diff);
 	    	$second = (int)date("s",$diff);
 	    	$change = false;
+	    	$interval = 30;
 	    	if($minute > 0){
 	    		$change = true;
 	    	}else{
-	    		if($second > 15){
+	    		if($second > $interval){
 	    			$change = true;
 	    		}
 	    	}
