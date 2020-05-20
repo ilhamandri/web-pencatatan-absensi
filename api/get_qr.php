@@ -15,8 +15,9 @@
 	    6 => 'Saturday',
 	    7 => 'Sunday'
 	);
+	
 	// $jam = date('h');
-	// $hari = array_search (date('l'), $days)
+	// $hari = array_search (date('l'), $days);
 	
 	$jam = 9;
 	$hari = 1;
