@@ -26,9 +26,9 @@
 		    	$date_today = date("Y-m-d");
 		    	$sql2 = "SELECT absensi.* FROM absensi JOIN jadwal ON jadwal.matakuliah_id = absensi.matakuliah_id WHERE mahasiswa_id = $mahasiswa_id AND absensi.matakuliah_id = $matakuliah_id AND DATE(jam) = '$date_today'";
 				$result2 = mysqli_query($conn, $sql2);
-		    	// if (mysqli_num_rows($result2) > 0) {
-		    		// $error = "Anda sudah melakukan absensi";
-		    	// }else{
+		    	if (mysqli_num_rows($result2) > 0) {
+		    		$error = "Anda sudah melakukan absensi";
+		    	}else{
 		    		$sql = "INSERT INTO absensi (matakuliah_id, mahasiswa_id, jam) VALUES ($matakuliah_id, $mahasiswa_id, CURRENT_TIMESTAMP)";
 			    	if ($conn->query($sql) === TRUE){
 			    		$token = md5($matakuliah_id.time());
@@ -41,7 +41,7 @@
 					        );
 			    		}
 			    	}
-		    	// }
+		    	}
 			}else{
 				$error = "Anda tidak terdaftar dimatakuliah ini.";
 			}	    	
