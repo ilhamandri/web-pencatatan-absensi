@@ -25,6 +25,16 @@
 				                <label for="materialContactFormEmail">Nama</label>
 				            </div>
 
+				            <div class="md-form">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['email'] ?>" required>
+				                <label for="materialContactFormEmail">Email</label>
+				            </div>
+
+				            <div class="md-form">
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['password'] ?>" required>
+				                <label for="materialContactFormEmail">Password</label>
+				            </div>
+
 				            <div class="md-form mt-3">
 					            <select name="prodi_id" class="mdb-select md-form" searchable="Cari Prodi ..." required>
 	  								<?php

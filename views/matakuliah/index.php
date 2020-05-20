@@ -23,13 +23,14 @@
 		                  			<th class="th-lg">Kode</th>
 		                  			<th class="th-lg">Nama</th>
 		                  			<th class="th-lg">SKS</th>
+		                  			<th class="th-lg">Tatap Muka</th>
 		                  			<th></th>
 		                		</tr>
 			              	</thead>
 			              	<tbody>
 			              		<?php
 
-									$sql = "SELECT id, kode, nama, sks FROM matakuliah";
+									$sql = "SELECT id, kode, nama, sks, absent FROM matakuliah";
 									$result = mysqli_query($conn, $sql);
 
 									if (mysqli_num_rows($result) > 0) {
@@ -38,6 +39,7 @@
 									        echo "<td>".$row["kode"]."</td>";
 				                  			echo "<td>".$row["nama"]."</td>";
 				                  			echo "<td>".$row["sks"]."</td>";
+				                  			echo "<td>".$row["absent"]."</td>";
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=edit_matakuliah&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";
 				                  			echo '<button type="button" class="btn btn-danger" onclick="launchModal(\'matakuliah\',\''.$row["nama"].'\', \''.$row["id"].'\')">Hapus</button>';

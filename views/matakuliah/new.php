@@ -4,8 +4,9 @@
 	  	$name = $_POST["name"];
 	  	$code = $_POST["code"];
 	  	$sks = $_POST["sks"];
-		$sql = "INSERT INTO matakuliah (nama, kode, sks)
-		VALUES ('$name', '$code', $sks)";
+	  	$absent = $_POST["absent"];
+		$sql = "INSERT INTO matakuliah (nama, kode, sks, absent)
+		VALUES ('$name', '$code', $sks, $absent)";
 		if(mysqli_query($conn, $sql)){
 			echo "DATA BERHASIL DISIMPAN!";
 			header("Location: " . "http://localhost/ilham?page=matakuliah");
@@ -50,8 +51,13 @@
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" required min="2" max="42">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="sks" required min="2" max="10">
 				                <label for="materialContactFormEmail">SKS</label>
+				            </div>
+
+				            <div class="md-form">
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="absent" required min="2" max="42">
+				                <label for="materialContactFormEmail">Jumlah Tatap Muka</label>
 				            </div>
 
 				            

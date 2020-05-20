@@ -21,6 +21,7 @@
 		              		<thead>
 		                		<tr class="blue-grey lighten-4">
 		                  			<th class="th-lg">NPM</th>
+		                  			<th class="th-lg">Email</th>
 		                  			<th class="th-lg">Nama</th>
 		                  			<th></th>
 		                		</tr>
@@ -28,13 +29,14 @@
 			              	<tbody>
 			              		<?php
 									
-									$sql = "SELECT id,npm, nama FROM mahasiswa";
+									$sql = "SELECT id,npm, nama, email FROM mahasiswa";
 									$result = mysqli_query($conn, $sql);
 
 									if (mysqli_num_rows($result) > 0) {
 									    while($row = mysqli_fetch_assoc($result)) {
 									        echo "<tr>";
 									        echo "<td>".$row["npm"]."</td>";
+									        echo "<td>".$row["email"]."</td>";
 				                  			echo "<td>".$row["nama"]."</td>";
 				                  			echo "<td>";
 				                  			echo "<a href='index.php?page=edit_mahasiswa&id=".$row["id"]."' class='btn btn-warning'> Ubah </a>";

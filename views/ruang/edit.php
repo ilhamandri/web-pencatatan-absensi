@@ -21,12 +21,12 @@
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="gedung" value="<?php echo $data['gedung'] ?>" required>
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="gedung" min=0 value="<?php echo $data['gedung'] ?>" required>
 				                <label for="materialContactFormEmail">Gedung</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="number" id="materialContactFormEmail" class="form-control" name="lantai" value="<?php echo $data['lantai'] ?>" required>
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="lantai" min=0  value="<?php echo $data['lantai'] ?>" required>
 				                <label for="materialContactFormEmail">Lantai</label>
 				            </div>
 

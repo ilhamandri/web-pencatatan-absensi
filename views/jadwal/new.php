@@ -82,13 +82,13 @@
 				            <div class="row">
 				            	<div class="col">
 				            		<div class="md-form">
-						                <input name="jam_mulai" type="number" min="7" max="19" id="materialContactFormEmail" class="form-control" name="nama" required="required">
+						                <input name="jam_mulai" type="number" min="7" max="16" id="materialContactFormEmail" class="form-control" name="nama" required="required">
 						                <label for="materialContactFormEmail">Jam Mulai</label>
 				            		</div>	
 				            	</div>
 				            	<div class="col">
 				            		<div class="md-form">
-						                <input name="jam_selesai" type="number" max="19" required="required" min="7" id="materialContactFormEmail" class="form-control" name="nama">
+						                <input name="jam_selesai" type="number" max="17" required="required" min="7" id="materialContactFormEmail" class="form-control" name="nama">
 						                <label for="materialContactFormEmail">Jam Selesai</label>
 						            </div>
 				            	</div>

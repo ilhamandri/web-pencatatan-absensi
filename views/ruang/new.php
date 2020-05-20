@@ -45,12 +45,12 @@
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="gedung" required>
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="gedung" min=0  required>
 				                <label for="materialContactFormEmail">Gedung</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="lantai" required>
+				                <input type="number" id="materialContactFormEmail" class="form-control" name="lantai" min=0 required>
 				                <label for="materialContactFormEmail">Lantai</label>
 				            </div>
 				            

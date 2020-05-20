@@ -41,7 +41,7 @@
                         </a>
                     </div>
                     <div class="col-4 text-center">
-                        <a href="index.php?page=jadwal" class="btn btn-primary">
+                        <a href="index.php?page=prodi" class="btn btn-primary">
                             Daftar Prodi
                         </a>
                     </div>

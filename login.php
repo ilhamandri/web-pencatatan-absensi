@@ -114,7 +114,9 @@
           
         }
       }else{
-        echo "ERROR!";
+        ?>
+        <h2 class="login-header" style="background: red !important">Email / Password tidak sesuai.</h2>
+        <?php
       }
     }
   ?>
