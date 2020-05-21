@@ -26,12 +26,12 @@
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['email'] ?>" required>
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="email" value="<?php echo $data['email'] ?>" required>
 				                <label for="materialContactFormEmail">Email</label>
 				            </div>
 
 				            <div class="md-form">
-				                <input type="text" id="materialContactFormEmail" class="form-control" name="nama" value="<?php echo $data['password'] ?>" required>
+				                <input type="text" id="materialContactFormEmail" class="form-control" name="password" value="<?php echo $data['password'] ?>" required>
 				                <label for="materialContactFormEmail">Password</label>
 				            </div>
 
